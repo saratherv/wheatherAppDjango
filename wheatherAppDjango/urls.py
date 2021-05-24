@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from core.views import WeatherView, HomeView
+from django.conf.urls import url
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'^api/v1/weather/$', WeatherView.as_view()),
+    url(r'^$', HomeView.as_view()),
+    url(r'^getWeather/$', HomeView.as_view()),
 ]
